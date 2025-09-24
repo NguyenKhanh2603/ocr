@@ -1,5 +1,5 @@
 
-img="DLDR5BP24BK_00.jpg"
+img="DLDR5BP24BK_00.jpg" # có thể thay đổi đường dẫn ảnh để test những ảnh khác
 from paddleocr import PaddleOCR
 from pathlib import Path
 import json,shutil
@@ -13,7 +13,7 @@ out_dir = ROOT / "output"
 out_dir.mkdir(parents=True, exist_ok=True)
 
 # Run OCR inference on a sample image
-r = ocr.predict("DLDR5BP24BK_00.jpg")
+r = ocr.predict(img)
 for l in r:
     l.save_to_json(str(out_dir))
 
@@ -117,3 +117,4 @@ def print_reading_order(result, y_merge=0.6, gap_mult=1.8):
 # ==== GỌI HÀM ====
 print_reading_order(obj, y_merge=0.6, gap_mult=1.8)
 shutil.rmtree(out_dir, ignore_errors=True)
+
